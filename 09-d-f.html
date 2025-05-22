@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input placeholder="Name" class="js-input" onkeydown="handleKeydown(event)">
+    
+    <button onclick="getValue()">Submit</button>
+
+    <p class="js-text"></p>
+
+    <script>
+        function getValue(){
+            let inputElement=document.querySelector('.js-input');
+            let text=inputElement.value;
+
+            document.querySelector('.js-text').innerHTML=`Your name is: ${text}`;
+        }
+
+        function handleKeydown(event){
+            if(event.key==='Enter'){
+                getValue();
+            }
+        }
+    </script>
+</body>
+</html>

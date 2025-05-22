@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Cart Quantity06</title>
+        
+    </head>
+    <body>
+        <p>Cart Quantity</p>
+        <button onclick="document.querySelector('.js-quantity').innerHTML=`Cart quantity: ${cartQuantity}`;">
+            Show Quantity 
+        </button>
+
+        <button onclick="updateCartQuantity(1);">
+            Add to Cart
+        </button>
+
+        <button onclick="updateCartQuantity(2);">
+            +2
+        </button>
+
+        <button onclick="updateCartQuantity(3);">
+            +3
+        </button>
+
+        <button onclick="updateCartQuantity(4);">
+            +4
+         </button>
+
+        <button onclick="updateCartQuantity(5);">
+            +5
+        </button>
+
+        <button onclick="updateCartQuantity(-1);">
+            Remove from Cart
+        </button>
+
+        <button onclick="updateCartQuantity(-2)">
+            -2
+        </button>
+
+        <button onclick="updateCartQuantity(-3)">
+            -3
+        </button>
+
+        <button onclick="cartQuantity=0;
+        document.querySelector('.js-quantity').innerHTML='Cart was reset';
+        console.log('Cart was reset.');
+        console.log(`Cart quantity: ${cartQuantity}`);">
+            Reset cart
+        </button>
+
+        <p class="js-quantity"></p>
+
+        <script>
+            let cartQuantity = 0;
+            const maxQuantity=10;
+            
+            document.querySelector('.js-quantity').innerHTML=`Cart quantity: ${cartQuantity}`;
+            
+            function updateCartQuantity(value){
+                if(cartQuantity+value>maxQuantity){
+                    document.querySelector('.js-quantity').innerHTML='The cart is full.';
+                    return;
+                }
+                else if(cartQuantity+value<0){
+                    document.querySelector('.js-quantity').innerHTML='No item to remove';
+                }
+                else{
+                    cartQuantity+=value;
+                    document.querySelector('.js-quantity').innerHTML=`Cart quantity: ${cartQuantity}`;
+                    console.log(`Cart quantity: ${cartQuantity}`);
+                }
+            }
+        </script>
+    </body>
+</html>

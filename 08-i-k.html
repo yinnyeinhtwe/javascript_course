@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>6f to 6j</title>
+        
+    </head>
+    <body>
+        <button onclick="playGame('heads')">
+            heads
+        </button>
+
+        <button onclick="playGame('tails')">
+            tails
+        </button>
+
+        <script>
+            let score=JSON.parse(localStorage.getItem('score')) || {
+                wins:0,
+                losses:0
+            }
+        function computerPick(){
+           const computerMove=Math.random();
+           let result='';
+           
+           if(computerMove>=0 && computerMove<0.5){
+            result='heads';
+           }
+           else{
+            result='tails';
+           }
+           return result;
+        }
+
+        function playGame(guess){
+            let result=computerPick();
+            let final='';
+            if(guess===result){
+                final='You Win!';
+                console.log(final);
+            }
+            else{
+                final='You Lose!'
+                console.log(final);
+            }
+            
+            if(final==='You Win!'){
+                score.wins+=1;
+                console.log(`Wins: ${score.wins} , Losses: ${score.losses}`);
+            }
+            else if(final==='You Lose!'){
+                score.losses+=1;
+                console.log(`Wins: ${score.wins} , Losses: ${score.losses}`);
+            }
+            localStorage.setItem('score',JSON.stringify(score));
+        }
+        </script>
+    </body>
+</html>

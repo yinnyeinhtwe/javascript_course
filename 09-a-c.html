@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>9a</button>
+    <button class="js-button" onclick="changeText()">9b</button>
+    <p>
+        <button  onclick="document.querySelector('.js-choose').innerHTML='You chose: heads'">heads</button>
+
+        <button  onclick="document.querySelector('.js-choose').innerHTML='You chose: tails'">tails</button>
+    </p>
+    <p class="js-choose"></p>
+
+    <script>
+        console.log(document.querySelector('button'));
+
+        /*document.querySelector('.js-button').innerHTML='9b done!';*/
+
+        function changeText(){
+            let button1=document.querySelector('.js-button');
+            if(button1.innerText==='9b'){
+                button1.innerHTML='9b done!';
+            }
+            else{
+                button1.innerHTML='9b';
+            }
+        }
+
+    </script>
+</body>
+</html>
